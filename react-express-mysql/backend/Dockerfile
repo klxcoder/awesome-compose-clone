@@ -8,4 +8,6 @@ FROM node:lts AS development
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
+WORKDIR /code
+
 CMD ["tail", "-f", "/dev/null"]
