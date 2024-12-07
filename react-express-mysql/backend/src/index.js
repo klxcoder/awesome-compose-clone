@@ -6,7 +6,7 @@ app.listen(port, () => {
 });
 
 // quit on ctrl-c when running docker in terminal
-process.on("SIGINT", function onSigint() {
+process.on("SIGINT", () => {
   console.info(
     "Got SIGINT (aka ctrl-c in docker). Graceful shutdown ",
     new Date().toISOString()
@@ -15,7 +15,7 @@ process.on("SIGINT", function onSigint() {
 });
 
 // quit properly on docker stop
-process.on("SIGTERM", function onSigterm() {
+process.on("SIGTERM", () => {
   console.info(
     "Got SIGTERM (docker container stop). Graceful shutdown ",
     new Date().toISOString()
@@ -24,12 +24,12 @@ process.on("SIGTERM", function onSigterm() {
 });
 
 // shut down server gracefully
-function shutdown() {
-  server.close(function onServerClosed(err) {
+const shutdown = () => {
+  server.close((err) => {
     if (err) {
       console.error(err);
       process.exit(1);
     }
     process.exit(0);
   });
-}
+};
