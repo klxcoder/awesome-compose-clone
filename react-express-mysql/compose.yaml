@@ -3,6 +3,10 @@ services:
     build:
       context: backend
       target: development
+    ports:
+      - 80:80
+      - 9229:9229
+      - 9230:9230
 networks:
   public:
   private:
