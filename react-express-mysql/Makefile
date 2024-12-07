@@ -1,4 +1,4 @@
-.PHONY: build up start bash
+.PHONY: build up start bash check
 
 # Build services
 build:
@@ -14,3 +14,7 @@ bash:
 
 # Combine build, up and bash
 start: build up bash
+
+# Check
+check:
+	docker exec -it react-express-mysql-backend-1 curl localhost/healthz
