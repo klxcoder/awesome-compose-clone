@@ -9,6 +9,8 @@ services:
       - 80:80
       - 9229:9229
       - 9230:9230
+    secrets:
+      - db-password
 networks:
   public:
   private:
