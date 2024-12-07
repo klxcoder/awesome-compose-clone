@@ -18,6 +18,10 @@ COPY package.json /code/package.json
 COPY package-lock.json /code/package-lock.json
 RUN npm ci
 
+# check every 30s to ensure this service returns HTTP 200
+HEALTHCHECK --interval=30s \
+  CMD curl -f http://localhost/ || exit 1
+
 # copy in our source code last, as it changes the most
 COPY . .
 
