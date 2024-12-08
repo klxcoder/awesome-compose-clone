@@ -8,14 +8,20 @@ build:
 up:
 	docker compose up -d
 
-.PHONY: bash
-# Start bash shell
+.PHONY: start
+# build and up
+start: build up bash
+
+.PHONY: backend-bash
+# Start backend bash shell
 bash:
 	docker exec -it react-express-mysql-backend-1 /bin/bash
 
-.PHONY: start
-# Combine build, up and bash
-start: build up bash
+.PHONY: db-mysql
+# Start mysql in interactive mode
+# Input the content inside db/password.txt when prompt
+db-mysql:
+	docker exec -it react-express-mysql-db-1 mysql -u root -p
 
 .PHONY: check
 # Check route healthz
