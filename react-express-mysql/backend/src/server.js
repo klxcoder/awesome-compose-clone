@@ -8,11 +8,14 @@ const app = express();
 
 app.use(morgan("common"));
 
-app.get("/", function (req, res, next) {
-  database.raw('select VERSION() version')
-    .then(([rows, columns]) => rows[0])
-    .then((row) => res.json({ message: `Hello from MySQL ${row.version}` }))
-    .catch(next);
+app.get("/", async (req, res, next) => {
+  try {
+    const [rows] = await database.raw('select VERSION() version');
+    const version = rows[0].version;
+    res.json({ message: `Hello from MySQL ${version}` });
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.get("/healthz", function (req, res) {
