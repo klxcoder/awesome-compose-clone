@@ -9,6 +9,7 @@ const app = express();
 app.use(morgan("common"));
 
 app.get("/", async (req, res, next) => {
+  return res.json("Hello from default route /");
   try {
     const [rows] = await database.raw('select VERSION() version');
     const version = rows[0].version;
