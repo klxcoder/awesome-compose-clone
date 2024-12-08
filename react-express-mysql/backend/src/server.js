@@ -11,7 +11,7 @@ app.use(morgan("common"));
 app.get("/", async (req, res, next) => {
   return res.json("Hello from default route /");
   try {
-    const [rows] = await database.raw('select VERSION() version');
+    const [rows] = await database.raw('SELECT VERSION() AS version');
     const version = rows[0].version;
     res.json({ message: `Hello from MySQL ${version}` });
   } catch (error) {
