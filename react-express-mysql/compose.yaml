@@ -17,6 +17,10 @@ services:
       - 9230:9230
     secrets:
       - db-password
+    volumes:
+      - ./backend/src:/code/src:ro
+      - ./backend/package.json:/code/package.json
+      - ./backend/package-lock.json:/code/package-lock.json
 networks:
   public:
   private:
