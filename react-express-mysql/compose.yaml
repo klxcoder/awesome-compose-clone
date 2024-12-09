@@ -38,6 +38,10 @@ services:
       - private
     environment:
       - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-password
+  frontend:
+    build:
+      context: frontend
+      target: development
 
 networks:
   public:
