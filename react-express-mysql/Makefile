@@ -14,6 +14,11 @@ up:
 # build and up
 build-up: build up
 
+.PHONY: down
+# Stop services
+down:
+	docker compose down
+
 .PHONY: logs
 logs:
 	docker compose logs -f
