@@ -46,6 +46,7 @@ services:
       - 5173:5173
     volumes:
       - ./frontend/src:/code/src
+      - /code/node_modules
     networks:
       - public
     depends_on:
