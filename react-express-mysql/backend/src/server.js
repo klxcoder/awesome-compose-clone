@@ -1,11 +1,12 @@
-const express = require("express");
-
-const morgan = require("morgan");
-
 const database = require("./database");
 
+const express = require("express");
 const app = express();
 
+// Middlewares
+const cors = require('cors');
+const morgan = require("morgan");
+app.use(cors());
 app.use(morgan("common"));
 
 app.get("/", async (req, res, next) => {
