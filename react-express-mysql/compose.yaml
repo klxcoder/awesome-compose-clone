@@ -46,6 +46,10 @@ services:
       - 5173:5173
     volumes:
       - ./frontend/src:./src
+    networks:
+      - public
+    depends_on:
+      - backend
 
 networks:
   public:
