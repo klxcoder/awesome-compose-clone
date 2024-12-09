@@ -10,11 +10,11 @@ up:
 
 .PHONY: start
 # build and up
-start: build up bash
+start: build up
 
 .PHONY: backend-bash
 # Start backend bash shell
-bash:
+backend-bash:
 	docker exec -it react-express-mysql-backend-1 /bin/bash
 
 .PHONY: db-mysql
@@ -23,9 +23,9 @@ bash:
 db-mysql:
 	docker exec -it react-express-mysql-db-1 mysql -u root -p
 
-.PHONY: check
+.PHONY: backend-check
 # Check route healthz
-check:
+backend-check:
 	docker exec -it react-express-mysql-backend-1 curl localhost/healthz
 
 .PHONY: inspect
