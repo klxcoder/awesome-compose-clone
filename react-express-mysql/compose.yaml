@@ -30,9 +30,9 @@ services:
     secrets:
       - db-password
     volumes:
-      - ./backend/src:./src:ro
-      - ./backend/package.json:./package.json
-      - ./backend/package-lock.json:./package-lock.json
+      - ./backend/src:/code/src:ro
+      - ./backend/package.json:/code/package.json
+      - ./backend/package-lock.json:/code/package-lock.json
     networks:
       - public
       - private
@@ -45,7 +45,7 @@ services:
     ports:
       - 5173:5173
     volumes:
-      - ./frontend/src:./src
+      - ./frontend/src:/code/src
     networks:
       - public
     depends_on:
