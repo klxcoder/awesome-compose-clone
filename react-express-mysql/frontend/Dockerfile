@@ -11,6 +11,6 @@ COPY yarn.lock .
 # RUN rm -rf node_modules
 RUN yarn install --frozen-lockfile
 
-COPY . .
+COPY ./vite ./vite
 
 CMD ["yarn", "dev"]
