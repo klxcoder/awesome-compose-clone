@@ -46,6 +46,8 @@ services:
       - 5173:5173
     volumes:
       - ./frontend/vite:/code/vite
+      - ./frontend/package.json:/code/package.json
+      - ./frontend/yarn.lock:/code/yarn.lock
       - /code/node_modules
     networks:
       - public
