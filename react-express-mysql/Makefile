@@ -10,9 +10,9 @@ build:
 up:
 	docker compose up -d
 
-.PHONY: start
+.PHONY: build-up
 # build and up
-start: build up
+build-up: build up
 
 .PHONY: logs
 logs:
