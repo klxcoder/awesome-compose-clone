@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('http://localhost/');
       const data = await response.json();
-      console.log(data);
+      setMessage(data.message);
     }
     fetchData();
   },);
@@ -24,7 +25,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <p>{message || "Loading..."}</p>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
