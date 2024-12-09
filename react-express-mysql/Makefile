@@ -14,6 +14,10 @@ up:
 # build and up
 start: build up
 
+.PHONY: logs
+logs:
+	docker compose logs -f
+
 ############################ backend service ##########################
 
 .PHONY: backend-check
