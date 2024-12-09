@@ -19,9 +19,9 @@ services:
     secrets:
       - db-password
     volumes:
-      - ./backend/src:/code/src:ro
-      - ./backend/package.json:/code/package.json
-      - ./backend/package-lock.json:/code/package-lock.json
+      - ./backend/src:./src:ro
+      - ./backend/package.json:./package.json
+      - ./backend/package-lock.json:./package-lock.json
     networks:
       - public
       - private
